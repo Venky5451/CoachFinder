@@ -43,7 +43,7 @@
 
 .section__description {
   max-width: 900px;
-  color: var(--text-light);
+  color: var(--text-light); 
 }
 
 .btn {
@@ -236,6 +236,8 @@ nav {
   margin-top: 4rem;
   display: grid;
   gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns with minimum size */
+  align-items: stretch; /* Ensures all items stretch to the same height */
 }
 
 .class__card {
@@ -245,8 +247,6 @@ nav {
   flex-direction: column;
   cursor: pointer;
   transition: 0.3s;
-  
-  overflow: hidden; /* Prevent any overflow from images or content */ 
 }
 
 .class__card .class__bg {
@@ -273,14 +273,18 @@ nav {
   padding: 1rem;
   background-color: var(--primary-color);
   color: var(--white);
-  
-  overflow: hidden; /* Prevent content overflow */
 }
 
 .class__content h4 {
   margin-bottom: 5px;
-  font-size: 1.2rem;
+  font-size: 1.2  rem;
   font-weight: 500;
+}
+
+.class__bg img {
+  width: 100%; /* Make the image take up the full width */
+  height: 100%; /* Make the image cover the container */
+  object-fit: cover; /* Ensure the image maintains aspect ratio while filling the space */
 }
 
 .trainer__container :is(.section__header, .section__description) {
