@@ -31,8 +31,12 @@
           <li class="link"><a href="#class">Classes</a></li>
           <li class="link"><a href="#trainer">Trainers</a></li>
           <li class="link"><a href="#price">Pricing</a></li>
-          <li class="link"><button class="btn">Contact Us</button></li>
+          <li class="link">
+            <button onclick="window.open('contact.html', '_blank'); return false;" class="btn">Contact Us</button>
+          </li>
+                    
         </ul>
+
       </nav>
       <div class="section__container header__container" id="home">
         <div class="header__image">
@@ -157,6 +161,8 @@
             <h2>Subhash Deshmukh</h2>
             <h3>Coach</h3>
             <hr />
+
+            <h3>Contact : 9595553155</h3>
             <p>
               With a background in competitive sports, he's dedicated to helping
               you reach your peak physical performance.
@@ -227,5 +233,18 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+    <!-- <script>
+      const contactUsBtn = document.getElementById("contactUsBtn");
+    
+      // Open the form in a new window
+      contactUsBtn.addEventListener("click", () => {
+        const formWindow = window.open(
+          "contact.html",
+          "ContactForm",
+          "width=500,height=600"
+        );
+      });
+    </script> -->
+    
   </body>
 </html>

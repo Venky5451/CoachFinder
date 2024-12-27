@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contact-form">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="number">Mobile No:</label>
+      <input type="number" id="number" name="number" placeholder="Your Mobile" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your public key (make sure this is at the start)
+    emailjs.init("mKaEw3p2l1IBs35uD");
+
+    // Add an event listener to the form
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Collect form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      const contact = document.getElementById("number").value; // Get mobile number
+
+      // Prepare the email parameters
+      const emailParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        contact: contact, // Add mobile number to email params
+      };
+
+      // Log the params to verify correct data
+      console.log("Sending email with params:", emailParams);
+
+      // Send the email using EmailJS
+      emailjs
+        .send("service_vg71hn5", "template_peyly6f", emailParams)
+        .then(() => {
+          alert("Message sent successfully!");
+          document.getElementById("contactForm").reset(); // Clear the form
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          alert("Failed to send message. Please try again later.");
+        });
+    });
+  </script>
+</body>
+</html>
